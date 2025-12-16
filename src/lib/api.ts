@@ -1,6 +1,6 @@
 import { Animal, Booking, TicketType } from './data';
 
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = 'http://localhost:3002/api';
 
 // Animals API
 export const fetchAnimals = async (): Promise<Animal[]> => {

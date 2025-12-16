@@ -1,29 +1,58 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { AnimalCard } from '@/components/AnimalCard';
-import { animals } from '@/lib/data';
+import { Animal } from '@/lib/data';
+import { fetchAnimals } from '@/lib/api';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Search, Filter } from 'lucide-react';
+import { Search, Filter, Loader2 } from 'lucide-react';
 
 const Animals = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [animals, setAnimals] = useState<Animal[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadAnimals = async () => {
+      try {
+        const data = await fetchAnimals();
+        setAnimals(data);
+      } catch (error) {
+        console.error('Failed to load animals:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadAnimals();
+  }, []);
 
   const categories = [...new Set(animals.map(a => a.category))];
 
   const filteredAnimals = animals.filter(animal => {
     const matchesSearch = animal.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         animal.species.toLowerCase().includes(searchTerm.toLowerCase());
+      animal.species.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = !selectedCategory || animal.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <div className="flex items-center justify-center h-[60vh]">
+          <Loader2 className="w-8 h-8 animate-spin text-primary" />
+          <span className="ml-2">Loading animals...</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero */}
       <section className="pt-24 pb-12 bg-gradient-hero">
         <div className="container mx-auto px-4">
@@ -51,7 +80,7 @@ const Animals = () => {
                 className="pl-10"
               />
             </div>
-            
+
             <div className="flex items-center gap-2 flex-wrap justify-center">
               <Filter className="w-4 h-4 text-muted-foreground" />
               <Button
