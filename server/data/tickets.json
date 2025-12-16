@@ -1,0 +1,44 @@
+[
+    {
+        "id": "basic",
+        "name": "Basic Entry",
+        "description": "Standard zoo admission with access to all animal exhibits",
+        "priceIndian": 100,
+        "priceForeigner": 500,
+        "features": [
+            "Access to all animal exhibits",
+            "Zoo map and guide",
+            "Children's play area access",
+            "Valid for one day"
+        ]
+    },
+    {
+        "id": "premium",
+        "name": "Premium Safari",
+        "description": "Enhanced experience with safari ride and feeding sessions",
+        "priceIndian": 300,
+        "priceForeigner": 1200,
+        "features": [
+            "All Basic Entry features",
+            "Safari bus ride",
+            "Elephant feeding session",
+            "Priority entry",
+            "Complimentary refreshments"
+        ]
+    },
+    {
+        "id": "vip",
+        "name": "VIP Experience",
+        "description": "Ultimate zoo experience with private guide and behind-the-scenes access",
+        "priceIndian": 800,
+        "priceForeigner": 3000,
+        "features": [
+            "All Premium Safari features",
+            "Private guided tour",
+            "Behind-the-scenes access",
+            "Meet the keepers session",
+            "Exclusive photography opportunities",
+            "Gourmet lunch included"
+        ]
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "id": "B001",
+        "userId": "U001",
+        "userName": "Rahul Sharma",
+        "userEmail": "rahul@example.com",
+        "ticketType": "Premium Safari",
+        "nationality": "Indian",
+        "visitDate": "2024-01-15",
+        "adults": 2,
+        "children": 1,
+        "totalAmount": 900,
+        "status": "Confirmed",
+        "createdAt": "2024-01-10"
+    },
+    {
+        "id": "B002",
+        "userId": "U002",
+        "userName": "John Smith",
+        "userEmail": "john@example.com",
+        "ticketType": "VIP Experience",
+        "nationality": "Foreigner",
+        "visitDate": "2024-01-18",
+        "adults": 2,
+        "children": 0,
+        "totalAmount": 6000,
+        "status": "Pending",
+        "createdAt": "2024-01-12"
+    },
+    {
+        "id": "B003",
+        "userId": "U003",
+        "userName": "Priya Patel",
+        "userEmail": "priya@example.com",
+        "ticketType": "Basic Entry",
+        "nationality": "Indian",
+        "visitDate": "2024-01-20",
+        "adults": 4,
+        "children": 2,
+        "totalAmount": 500,
+        "status": "Confirmed",
+        "createdAt": "2024-01-14"
+    }
+]
