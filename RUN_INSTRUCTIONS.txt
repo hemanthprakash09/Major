@@ -1,0 +1,24 @@
+
+ZOO MANAGEMENT SYSTEM – RUN INSTRUCTIONS
+
+REQUIREMENTS:
+1. Install Node.js (LTS) from https://nodejs.org
+2. Open terminal inside this project folder
+
+STEPS TO RUN:
+1. npm install
+2. npm run dev
+3. Open browser and go to: http://localhost:5173
+
+BUILD FOR PRODUCTION:
+npm run build
+npm run preview
+
+If you get errors:
+- Delete node_modules and package-lock.json
+- Run npm install again
+
+This project uses:
+- Vite + React + TypeScript
+- Tailwind CSS
+- shadcn/ui
