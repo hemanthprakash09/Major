@@ -116,7 +116,7 @@ const MyBookings = () => {
               </div>
             </div>
             <div class="qr-placeholder">
-              <div class="qr-box">QR Code</div>
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=WILDLIFE-ZOO-TICKET-${booking.id}" alt="QR Code" style="width: 120px; height: 120px; margin: 0 auto 12px; display: block;" />
               <p>Scan this code at the zoo entrance</p>
             </div>
           </div>
