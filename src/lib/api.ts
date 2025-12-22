@@ -103,3 +103,39 @@ export const deleteTicket = async (id: string): Promise<void> => {
     });
     if (!response.ok) throw new Error('Failed to delete ticket');
 };
+
+// Auth API
+export interface AuthUser {
+    id: string;
+    name: string;
+    email: string;
+    role: 'admin' | 'user';
+}
+
+export const loginUser = async (email: string, password: string): Promise<AuthUser> => {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+    });
+    if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Failed to login');
+    }
+    const data = await response.json();
+    return data.user;
+};
+
+export const registerUser = async (name: string, email: string, password: string): Promise<AuthUser> => {
+    const response = await fetch(`${API_BASE_URL}/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password }),
+    });
+    if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Failed to register');
+    }
+    const data = await response.json();
+    return data.user;
+};

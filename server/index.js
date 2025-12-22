@@ -5,6 +5,7 @@ const path = require('path');
 const animalsRoutes = require('./routes/animals');
 const bookingsRoutes = require('./routes/bookings');
 const ticketsRoutes = require('./routes/tickets');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3002;
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use('/api/animals', animalsRoutes);
 app.use('/api/bookings', bookingsRoutes);
 app.use('/api/tickets', ticketsRoutes);
+app.use('/api/auth', authRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

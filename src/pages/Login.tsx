@@ -9,9 +9,9 @@ import { Eye, EyeOff, LogIn, UserPlus, ArrowLeft } from 'lucide-react';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, signup } = useAuth();
   const { toast } = useToast();
-  
+
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
@@ -39,14 +39,23 @@ const Login = () => {
         });
       }
     } else {
-      // Simulate signup
-      toast({
-        title: "Account Created! 🎉",
-        description: "Please login with your credentials.",
-      });
-      setIsLogin(true);
+      // Handle signup
+      const result = await signup(name, email, password);
+      if (result.success) {
+        toast({
+          title: "Account Created! 🎉",
+          description: "Please login with your credentials.",
+        });
+        setIsLogin(true);
+      } else {
+        toast({
+          title: "Signup Failed",
+          description: result.error || "Failed to create account.",
+          variant: "destructive",
+        });
+      }
     }
-    
+
     setIsLoading(false);
   };
 
@@ -57,7 +66,7 @@ const Login = () => {
           <ArrowLeft className="w-4 h-4" />
           Back to Home
         </Link>
-        
+
         <div className="bg-card rounded-2xl p-8 shadow-card">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-2 mb-4">
@@ -86,7 +95,7 @@ const Login = () => {
                 />
               </div>
             )}
-            
+
             <div>
               <Label htmlFor="email">Email Address</Label>
               <Input
@@ -99,7 +108,7 @@ const Login = () => {
                 className="mt-1"
               />
             </div>
-            
+
             <div>
               <Label htmlFor="password">Password</Label>
               <div className="relative mt-1">

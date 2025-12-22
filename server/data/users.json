@@ -1,0 +1,16 @@
+[
+    {
+        "id": "1",
+        "name": "Zoo Admin",
+        "email": "admin@zoo.com",
+        "password": "$2a$10$rDkPvvAFV6GgJjXpYWvBNeOPPEsJ6P8T6rqHvGxhxL.WdXGcKuIaO",
+        "role": "admin"
+    },
+    {
+        "id": "2",
+        "name": "John Visitor",
+        "email": "user@zoo.com",
+        "password": "$2a$10$6jLECQ9DyQv3mTZhLD0.UuPBxuCMGOOPJSyPjHMSVMPLQJQlMSGbS",
+        "role": "user"
+    }
+]
